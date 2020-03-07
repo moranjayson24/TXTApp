@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Input</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>
+        Please type an example input:
+        <input type="text" name="input" id="input">
+        <input type="button" name="button" id="button" value="Submit" onclick="printInput()">
+
+    </h1>
+    <h2 id="output">
+        Output here:
+    </h2>
+
+    <script>
+        function printInput(){
+
+            var data = document.getElementById("input").value;
+            var out = document.getElementById("output");
+            out.insertAdjacentText("beforeend", data);
+        }
+    </script>
+</body>
+</html>
