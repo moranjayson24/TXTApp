@@ -8,8 +8,10 @@
 
 <body>
     <h1 id="Head">
-        Please type an example input:
-        <input type="text" name="input" id="input">
+        Enter 3 numbers you would like to add:
+        <input type="number" name="input1" id="i1">
+        <input type="number" name="input2" id="i2">
+        <input type="number" name="input3" id="i3">
         <input type="button" name="button" id="button" value="Submit" onclick="printInput()">
 
     </h1>
@@ -20,9 +22,32 @@
     <script>
         function printInput() {
 
-            var data = document.getElementById("input").value;
+            var num1 = document.getElementById("i1").value;
+            var num2 = document.getElementById("i2").value;
+            var num3 = document.getElementById("i3").value;
+
+            
             var out = document.getElementById("output");
-            out.insertAdjacentText("beforeend", data);
+            
+            var ascend = [num1, num2, num3];
+            var temp = ascend[0];
+
+            for( var i = 0; i < 3; i++ ) {
+                for( var j = i+1; j < 3; j++) {
+                    if( ascend[i] > ascend[j] ) {
+                        var temp = ascend[i];
+                        ascend[i] = ascend[j];
+                        ascend[j] = temp;
+                    }
+                }
+            }
+
+            }
+            for( var i = 0; i < 3; i++){
+                out.insertAdjacentElement("beforeend", ascend[i]);
+                out.insertAdjacentElement("beforeend", ", ");
+            }
+            
         }
     </script>
 </body>
