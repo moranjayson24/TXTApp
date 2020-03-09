@@ -23,35 +23,29 @@
         function printInput() {
 
             var num1 = document.getElementById("i1").value;
-            var num2 = document.getElementById("i1").value;
-            var num3 = document.getElementById("i1").value;
+            var num2 = document.getElementById("i2").value;
+            var num3 = document.getElementById("i3").value;
             
             var out = document.getElementById("output");
             
             var ascend = [num1, num2, num3];
             var temp = ascend[0];
 
-                if( temp > ascend[1] ){
-                    ascend[0] = ascend[1];
-                    ascend[1] = temp;
+            for( var i = 0; i < 3; i++ ) {
+                for( var j = i+1; j < 3; j++) {
+                    if( ascend[i] > ascend[j] ) {
+                        var temp = ascend[i];
+                        ascend[i] = ascend[j];
+                        ascend[j] = temp;
+                    }
                 }
-
-            if ( smallest > num2 ) {
-                smallest = num2;
-                if( smallest > num3 ) {
-                    smallest = num3;
-                }
-            } else if( smallest > num3 ) {
-                smallest = num3;
             }
-            out.insertAdjacentElement("beforeend", smallest);
-            
-            var mid = num1;
-            if( mid == smallest ) {
-                mid = num2;
-            }
-            if( mid > num3)
 
+            }
+            for( var i = 0; i < 3; i++){
+                out.insertAdjacentElement("beforeend", ascend[i]);
+                out.insertAdjacentElement("beforeend", ", ");
+            }
             
         }
     </script>
